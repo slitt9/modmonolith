@@ -1,0 +1,24 @@
+---
+description: Agent workflow — read Process and Changelog before any code change
+alwaysApply: true
+---
+
+# Agent workflow
+
+Before making **any** code change in this project:
+
+1. Read [`agent/process/Process.md`](agent/process/Process.md)
+2. Read [`agent/logs/Changelog.md`](agent/logs/Changelog.md)
+3. Read [`agent/memory/Recall.md`](agent/memory/Recall.md)
+
+After completing changes:
+
+1. Follow the post-edit review flow in `Process.md`
+2. Update `Changelog.md` with what changed
+3. Update `Recall.md` if routes, modules, or config changed
+
+## Modular monolith rules
+
+- Domain code lives in `src/modules/<name>/`
+- Cross-module calls use **service layers only** — never import another module's repository
+- Shared infrastructure stays in `src/shared/`

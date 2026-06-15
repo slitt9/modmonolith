@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> | modmono</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="logo">modmono</a>
+    <nav>
+      <% if (typeof user !== 'undefined' && user) { %>
+        <span class="nav-user"><%= user.email %></span>
+        <form action="/logout" method="POST" class="inline-form">
+          <button type="submit" class="btn-link">Log out</button>
+        </form>
+      <% } else { %>
+        <a href="/login">Log in</a>
+        <a href="/register">Register</a>
+      <% } %>
+    </nav>
+  </header>
+  <main class="container">
